@@ -71,7 +71,7 @@ export default function AdminView(props){
 		// Helps retain the data if adding a destination is unsuccessful
 		e.preventDefault()
 
-		fetch(`http://localhost:4000/add`, {
+		fetch(`http://localhost:4000/destinations`, {
 			method: 'POST',
 			headers: {
 				Authorization: `Bearer ${ localStorage.getItem('token') }`,
@@ -191,13 +191,14 @@ export default function AdminView(props){
 			.then(data => {
 
 				if (data === true) {
+					console.log(data)
 
 					fetchData();
 
 					Swal.fire({
 						title: "Success",
 						icon: "success",
-						text: "Destination successfully archived/unarchived."
+						text: "Destination successfully archived."
 					});
 
 				} else {
@@ -214,6 +215,49 @@ export default function AdminView(props){
 			})
 		}
 
+		const unarchiveToggle = (destinationId, isActive) => {
+
+			console.log(!isActive);
+
+			fetch(`http://localhost:4000/destinations/${ destinationId }/unarchive`, {
+				method: 'PUT',
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${ localStorage.getItem('token') }`
+				},
+				body: JSON.stringify({
+					isActive: !isActive
+				})
+			})
+			.then(res => res.json())
+			.then(data => {
+
+				if (data === true) {
+					console.log(data)
+
+					fetchData();
+
+					Swal.fire({
+						title: "Success",
+						icon: "success",
+						text: "Destination successfully unarchived."
+					});
+
+				} else {
+
+					fetchData();
+
+					Swal.fire({
+						title: "Something went wrong",
+						icon: "error",
+						text: "Please try again."
+					});
+
+				}
+			})
+		};
+
+	
 		const destinationsArr = destinationsData.map(destination => {
 
 			return(
@@ -228,7 +272,8 @@ export default function AdminView(props){
 							- Else if the destination's "isActive" field is "false" displays "unavailable"
 						*/}
 						{destination.isActive
-							? <span>Available</span>
+							? <span>Available<
+							/span>
 							: <span>Unavailable</span>
 						}
 					</td>
@@ -257,11 +302,12 @@ export default function AdminView(props){
 							<Button 
 								variant="success"
 								size="sm"
-								onClick={() => archiveToggle(destination._id, destination.isActive)}
+								onClick={() => unarchiveToggle(destination._id, destination.isActive)}
 							>
 								Enable
 							</Button>
 						}
+
 					</td>
 				</tr>
 
