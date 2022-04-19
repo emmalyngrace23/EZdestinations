@@ -5,10 +5,10 @@ import Banner from '../components/Banner';
 export default function Home() {
 
 	const data = {
-		title: "EZ Accounting Tutorial",
-		content: "Accounting, made easy!",
-		destination: "/courses",
-		label: "Enroll Now!"
+		title: "EZ Destinations",
+		content: "Your next Travel, made easy!",
+		destination: "/destinations",
+		label: "Book Now!"
 	}
 
 	return(

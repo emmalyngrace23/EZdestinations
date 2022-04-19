@@ -5,7 +5,7 @@ import {useParams, useNavigate, Link} from 'react-router-dom';
 import UserContext from '../UserContext';
 import Swal from 'sweetalert2';
 
-export default function CourseView(){
+export default function DestinationView(){
 
 	const {user} = useContext(UserContext);
 
@@ -17,17 +17,17 @@ export default function CourseView(){
 	const [price, setPrice] = useState(0);
 
 
-	const {courseId} = useParams();
+	const {destinationId} = useParams();
 
-	const enroll = (courseId) => {
-		fetch('http://localhost:4000/users/enroll', {
+	const book = (destinationId) => {
+		fetch('http://localhost:4000/users/book', {
 			method: "POST",
 			headers: {
 				"Content-Type" : "application/json",
 				Authorization: `Bearer ${localStorage.getItem("token")}`
 			},
 			body: JSON.stringify({
-				courseId: courseId
+				destinationId: destinationId
 			})
 		})
 		.then(res => res.json())
@@ -37,12 +37,12 @@ export default function CourseView(){
 			if(data === true){
 
 				Swal.fire({
-					title: "Enrolled Successfully!",
+					title: "Booked Successfully!",
 					icon: "success",
-					text: "You have successfully enrolled in this course"
+					text: "You have successfully booked in this package"
 				})
 
-				history("/courses");
+				history("/destinations");
 		
 
 
@@ -50,16 +50,16 @@ export default function CourseView(){
 				Swal.fire({
 					title: "Something went wrong",
 					icon: "error",
-					text: "Please contact admin"
+					text: "Please contact us"
 				})
 			}
 		})
 	}
 
 	useEffect(() => {
-		console.log(courseId)
+		console.log(destinationId)
 
-		fetch(`http://localhost:4000/courses/${courseId}`)
+		fetch(`http://localhost:4000/destinations/${destinationId}`)
 		.then(res => res.json())
 		.then(data => {
 			console.log(data)
@@ -68,7 +68,7 @@ export default function CourseView(){
 			setDescription(data.description);
 			setPrice(data.price);
 		})
-	}, [courseId])
+	}, [destinationId])
 
 	return(
 		<Container className="mt-5">
@@ -81,13 +81,13 @@ export default function CourseView(){
 							<Card.Text>{description}</Card.Text>
 							<Card.Subtitle>Price</Card.Subtitle>
 							<Card.Text>{price}</Card.Text>
-							<Card.Subtitle>Class Schedule</Card.Subtitle>
-							<Card.Text>8:00 AM to 5:00 PM</Card.Text>
+							<Card.Subtitle>Travel Schedule</Card.Subtitle>
+							<Card.Text>April to May 2022</Card.Text>
 
 							{ user.id !== null ?
-								<Button variant="primary" onClick={() => enroll(courseId)}>Enroll</Button>
+								<Button variant="primary" onClick={() => book(destinationId)}>Book</Button>
 								: 
-								<Link className="btn btn-danger" to="/login">Log In to Enroll</Link>
+								<Link className="btn btn-danger" to="/login">Log In to Book</Link>
 							}
 						</Card.Body>
 					</Card>

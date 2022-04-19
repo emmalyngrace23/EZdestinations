@@ -2,23 +2,23 @@ import {useState, useEffect} from 'react';
 import { Card, Button } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
-export default function CourseCard ({courseProp}) {
+export default function DestinationCard ({destinationProp}) {
 
-	console.log(courseProp);
-	console.log(typeof courseProp);
+	console.log(destinationProp);
+	console.log(typeof destinationProp);
 
-	const {name, description, price, _id} = courseProp
+	const {name, description, price, _id} = destinationProp
 
 	return(
 		<Card className="mt-3 mb-3">
-			<Card className="cardCourse p-3">
+			<Card className="cardDestination p-3">
 					<Card.Body> 
 						<Card.Title>{name}</Card.Title>					
 						<Card.Subtitle>Description</Card.Subtitle>
 						<Card.Text> {description}</Card.Text>
 						<Card.Subtitle>Price</Card.Subtitle>
 						<Card.Text>{price}</Card.Text>
-						<Button variant="primary" as={Link} to={`/courses/${_id}`}>See Details</Button>
+						<Button variant="success" as={Link} to={`/destinations/${_id}`}>See Details</Button>
 					</Card.Body>
 				</Card>
 		</Card>

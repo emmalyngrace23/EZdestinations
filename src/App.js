@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // v5 of react-router-dom: Routes is Switch
 import AppNavbar from './components/AppNavbar';
-import CourseView from './components/CourseView';
+import DestinationView from './components/DestinationView';
 // import Banner from './components/Banner';
 // import Highlights from './components/Highlights';
 import Home from './pages/Home';
-import Courses from './pages/Courses';
+import Destinations from './pages/Destinations';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
@@ -18,7 +18,7 @@ import { UserProvider } from './UserContext'
 
 function App() {
 
-  // to verify is user is logged in
+  // to verify if user is logged in
   const [user, setUser] = useState({
     id: null, 
     isAdmin: null
@@ -66,13 +66,8 @@ function App() {
         {/*<Banner/>
           <Highlights/>*/}
           <Route exact path= "/" element={<Home/>}/>
-
-        {/*
-        v5 routing: <Route exact path= "/" component={Home}/> 
-        */}
-
-          <Route exact path= "/courses" element={<Courses/>}/>
-          <Route exact path= "/courses/:courseId" element={<CourseView/>}/>
+          <Route exact path= "/destinations" element={<Destinations/>}/>
+          <Route exact path= "/destinations/:destinationId" element={<DestinationView/>}/>
           <Route exact path= "/register" element={<Register/>}/>
           <Route exact path= "/login" element={<Login/>}/>
           <Route exact path= "/logout" element={<Logout/>}/>

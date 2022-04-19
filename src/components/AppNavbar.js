@@ -19,8 +19,7 @@ export default function AppNavbar(){
 	    <Navbar.Collapse id="basic-navbar-nav">
 	      <Nav className="ml-auto">
 	        <Nav.Link as={Link} to="/">Home</Nav.Link>
-	        <Nav.Link as={Link} to="/courses">Courses</Nav.Link>
-
+	        <Nav.Link as={Link} to="/destinations">Destinations</Nav.Link>
 	        { (user.id !== null) ?
 	        	<Nav.Link as={Link} to="/logout">Logout</Nav.Link>
 	        	:

@@ -18,10 +18,11 @@ export default function Register(){
 	const [isActive, setIsActive] = useState(false);
 
 	function registerUser(e) {
-		// to prevent from going to the top
+		console.log('e', e);
+		
 		e.preventDefault();
 
-		fetch ('http://localhost:4000/users/checkEmailExists', {
+		fetch ('http://localhost:4000/users/checkEmail', {
 			method: 'POST',
 			headers: {
 				'Content-Type' : 'application/json'
@@ -33,7 +34,7 @@ export default function Register(){
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
+			console.log('data', data);
 
 			if(data === true){
 				Swal.fire({
@@ -42,6 +43,7 @@ export default function Register(){
 					text: "Please provide another email"
 				})
 			} else {
+				console.log('available, do http://localhost:4000/users/register next');
 				fetch('http://localhost:4000/users/register', {
 					method: 'POST',
 					headers: {
@@ -68,7 +70,7 @@ export default function Register(){
 						Swal.fire({
 							title: 'Registration successful',
 							icon: 'success',
-							text: 'Welcome to Zuitt'
+							text: 'Welcome to EZ!'
 						})
 
 						history("/login")
@@ -83,26 +85,13 @@ export default function Register(){
 			}
 		})
 
-		// to still clear input even if default is prevented
-
-		// localStorage.setItem("email", email)
-
-		// to access the user info, it can be done using localStorage; this is necessary to update the user state which will help update the App component and render it to avoid refreshing the page upon user login and logout
-
-		//when state change components are rendered and the AppNavbar component will be updated based on the user credentials
-		/*setUser({
-			email: localStorage.getItem('email')
-		})
-*/
-		// clear input fields
+		
 		setFirstName('');
 		setLastName('');
 		setMobileNo('');
 		setEmail('');
 		setPassword('');
 		
-
-	//	alert('Thank you for registering');
 	}
 
 	useEffect(() => {
@@ -116,7 +105,7 @@ export default function Register(){
 
 	return(
 		(user.id !== null) ? 
-		<Navigate to= "/courses"/>
+		<Navigate to= "/destinations"/>
 		:
 		<Form onSubmit={e => registerUser(e)}>
 			<h1>Register</h1>
@@ -173,9 +162,7 @@ export default function Register(){
 					required
 				/>
 			</Form.Group>
-			
-			{/* conditionally rendering submit button based on isActive state 
-			 use ternary operators ?if :then*/}
+	
 			{ isActive ?
 				<Button variant="primary" type="submit" id="submitBtn" className="mt-3 mb-3">
 				Submit

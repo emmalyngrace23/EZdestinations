@@ -8,7 +8,7 @@ export default function Highlights () {
 				<Card className="cardHighlight p-3">
 					<Card.Body> 
 						<Card.Title>
-							<h2>Learn From Home</h2>
+							<h2>Book your next Destination from Home</h2>
 						</Card.Title>
 						<Card.Text>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -25,7 +25,7 @@ export default function Highlights () {
 				<Card className="cardHighlight p-3">
 					<Card.Body> 
 						<Card.Title>
-							<h2>Study Now, Pay Later</h2>
+							<h2>Travel without Hassle</h2>
 						</Card.Title>
 						<Card.Text>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -42,7 +42,7 @@ export default function Highlights () {
 				<Card className="cardHighlight p-3">
 					<Card.Body> 
 						<Card.Title>
-							<h2>Be Part Of Our Community</h2>
+							<h2>Refer a Friend, Get Extra Miles!</h2>
 						</Card.Title>
 						<Card.Text>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

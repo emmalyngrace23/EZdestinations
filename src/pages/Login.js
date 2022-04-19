@@ -42,7 +42,7 @@ export default function Login(props){
 				Swal.fire({
 					title: 'Login Successful',
 					icon: 'success',
-					text: 'Welcome to Zuitt!'
+					text: 'Welcome to EZ!'
 				})
 			} else {
 				Swal.fire({
@@ -53,18 +53,6 @@ export default function Login(props){
 			}
 		})
 
-		// set the email of the authenticated user in the local storage
-
-		// Syntax: localStorage.setItem("key", value)
-		// localStorage.setItem("email", email)
-
-		// to access the user info, it can be done using localStorage; this is necessary to update the user state which will help update the App component and render it to avoid refreshing the page upon user login and logout
-
-		//when state change components are rendered and the AppNavbar component will be updated based on the user credentials
-		/*setUser({
-			email: localStorage.getItem('email')
-		})
-*/
 		setEmail('');
 		setPassword('');
 
@@ -86,7 +74,6 @@ export default function Login(props){
 			})
 		}
 
-		// alert('Log in successful');
 	}
 
 	useEffect(() => {
@@ -100,7 +87,7 @@ export default function Login(props){
 
 	return(
 		(user.id !== null) ? 
-		<Navigate to= "/courses"/>
+		<Navigate to= "/destinations"/>
 		:
 		<Form onSubmit={e => loginUser(e)}>
 			<h1>Login</h1>
