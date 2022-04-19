@@ -1,32 +1,50 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
+import {Container} from 'react-bootstrap';
 // import destinationsData from '../data/destinationsData';
-import DestinationCard from '../components/DestinationCard';
+// import DestinationCard from '../components/DestinationCard';
+
+import AdminView from './../components/AdminView.js';
+import UserView from './../components/UserView.js';
+
+import UserContext from './../UserContext';
 
 
 export default function Destinations() {
 
 	const [destinations, setDestinations] = useState([]); 
 
-	useEffect(() => {
-		fetch('http://localhost:4000/destinations')
-		.then(res => res.json())
-		.then(data => {
-			console.log("data check", data)
+	const {user} = useContext(UserContext);
 
-			setDestinations(data.map(destination => {
-				console.log("<DestinationCard key={destination._id} destinationProp={destination}/>", <DestinationCard key={destination._id} destinationProp={destination}/>)
-		return (
-			<DestinationCard key={destination._id} destinationProp={destination}/>
-			);
-		}));
+	const fetchData = () => {
+		let token = localStorage.getItem('token')
+
+		fetch('http://localhost:4000/destinations',{
+			method: "GET",
+			headers: {
+				"Authorization": `Bearer ${token}`
+			}
 		})
+		.then(result => result.json())
+		.then(result => {
+			console.log(result)
+			setDestinations(result)
+		})
+	}
+
+
+
+	useEffect(() => {
+		fetchData()
 	}, [])
 
 
 	return (
-		<>
-			<h1>Destinations</h1>
-			{destinations}
-		</>
+		<Container className="p-4">
+			{(user.isAdmin === true) ? 
+				<AdminView destinationsData={destinations} fetchData={fetchData}/>
+				:
+				<UserView destinationsData={destinations}/>
+			} 
+		</Container>
 	)
 }

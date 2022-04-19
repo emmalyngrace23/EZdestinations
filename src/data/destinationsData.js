@@ -10,7 +10,7 @@ const destinationsData = [
 		id: "des002",
 		name: "Taiwan",
 		description: "Situated off the east coast of China, Taiwan came of age in 1949 when, as the Republic of China, it separated from Mainland China. It is a country with many natural attributes with a steep mountain chain running from north to south, lush forests, lakes and an abundance of natural beauty to be enjoyed on Taiwan vacations.",
-		price: 14500,
+		price: 17500,
 		isActive: true 
 	},
 	{
