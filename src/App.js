@@ -9,6 +9,7 @@ import DestinationView from './components/DestinationView';
 // import Highlights from './components/Highlights';
 import Home from './pages/Home';
 import Destinations from './pages/Destinations';
+import Profile from './pages/Profile';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
@@ -67,6 +68,7 @@ function App() {
           <Highlights/>*/}
           <Route exact path= "/" element={<Home/>}/>
           <Route exact path= "/destinations" element={<Destinations/>}/>
+          <Route exact path= "/profile" element={<Profile/>}/>
           <Route exact path= "/destinations/:destinationId" element={<DestinationView/>}/>
           <Route exact path= "/register" element={<Register/>}/>
           <Route exact path= "/login" element={<Login/>}/>
