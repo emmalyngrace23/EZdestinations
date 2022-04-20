@@ -87,7 +87,7 @@ export default function AdminView(props){
 		.then(data => {
 
 			// If the new destination is successfully added
-			if (data === true) {
+			if (data) {
 
 				// Invoke the "fetchData" function passed from our parent component (destinations page)
 				// Rerenders the page because of the "useEffect"
@@ -142,7 +142,7 @@ export default function AdminView(props){
 		.then(data => {
 			console.log(data)
 
-			if (data === true) {
+			if (data) {
 
 				fetchData();
 
@@ -176,54 +176,13 @@ export default function AdminView(props){
 
 		const archiveToggle = (destinationId, isActive) => {
 
-			console.log(!isActive, "hello toggle");
-			console.log(isActive, "hello isActive");
+			console.log(isActive, "isActive");
+			console.log(!isActive, "!isActive");
+
 			console.log(destinationId, "hello destinationId");
 
 
 			fetch(`http://localhost:4000/destinations/${ destinationId }/archive`, {
-				method: 'PUT',
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${ localStorage.getItem('token') }`
-				},
-				body: JSON.stringify({
-					isActive: false
-				})
-			})
-			.then(res => res.json())
-			.then(data => {
-				console.log(data, "this data")
-				if (data === true) {
-					
-
-					fetchData();
-
-					Swal.fire({
-						title: "Success",
-						icon: "success",
-						text: "Destination successfully archived."
-					});
-
-				} else {
-
-					fetchData();
-
-					Swal.fire({
-						title: "Something went wrong",
-						icon: "error",
-						text: "Please try again."
-					});
-
-				}
-			})
-		}
-
-		const unarchiveToggle = (destinationId, isActive) => {
-
-			console.log(!isActive);
-
-			fetch(`http://localhost:4000/destinations/${ destinationId }/unarchive`, {
 				method: 'PUT',
 				headers: {
 					"Content-Type": "application/json",
@@ -235,16 +194,16 @@ export default function AdminView(props){
 			})
 			.then(res => res.json())
 			.then(data => {
-
-				if (data === true) {
-					console.log(data)
+				console.log(data, "this data")
+				if(!data) {
+					
 
 					fetchData();
 
 					Swal.fire({
 						title: "Success",
 						icon: "success",
-						text: "Destination successfully unarchived."
+						text: "Destination successfully enabled."
 					});
 
 				} else {
@@ -252,14 +211,15 @@ export default function AdminView(props){
 					fetchData();
 
 					Swal.fire({
-						title: "Something went wrong",
-						icon: "error",
-						text: "Please try again."
+						title: "Success",
+						icon: "success",
+						text: "Destination successfully disabled."
 					});
 
 				}
 			})
-		};
+		}
+
 
 		
 		const destinationsArr = destinationsData.map(destination => {
@@ -306,7 +266,7 @@ export default function AdminView(props){
 							<Button 
 								variant="success"
 								size="sm"
-								onClick={() => unarchiveToggle(destination._id, destination.isActive)}
+								onClick={() => archiveToggle(destination._id, destination.isActive)}
 							>
 								Enable
 							</Button>

@@ -9,6 +9,8 @@ export default function Profile() {
 
 	const [name, setName] = useState('');
 
+	const [total, setTotal] = useState();
+
 	const fetchData = () => {
 			fetch('http://localhost:4000/users/details', {
 	      method: "POST",
@@ -21,6 +23,8 @@ export default function Profile() {
 	      console.log(data, 'datadatadata');
 	      
 	      const arr = [];
+	      	let total = 0;
+
 		  	data.bookings.forEach((b) => {
 
 		 		fetch (`http://localhost:4000/destinations/${b.destinationId}`, {
@@ -31,6 +35,7 @@ export default function Profile() {
 				})
 				.then(res => res.json())
 				.then(dest => {
+					total += dest.price;
 					console.log('hhhhhhhhhhhhhh', dest);
 
 					arr.push(
@@ -39,6 +44,7 @@ export default function Profile() {
 								<Card.Body>
 									<Card.Title>{dest.name}</Card.Title>
 									<Card.Subtitle>ID: {b.destinationId}</Card.Subtitle>				
+									<Card.Subtitle>Price: {dest.price}</Card.Subtitle>				
 									<Card.Subtitle>Booked on: {b.bookedOn}</Card.Subtitle>
 									<Card.Subtitle>Status: {b.status}</Card.Subtitle>
 								</Card.Body>
@@ -49,6 +55,7 @@ export default function Profile() {
 					if (!!arr && arr.length === data.bookings.length) {
 						console.log('asd', arr);
 						setBookings(arr);
+						setTotal(total);
 					}
 
 				})
@@ -56,10 +63,13 @@ export default function Profile() {
 			})
 
 
+		  	console.log(data, "datahdkfkdnvcndl")
 		  	const lName = data.lastName.toUpperCase();
+		  	
 			
 			setName(`Bookings for: ${lName}, ${data.firstName}`);
 			console.log('asdfasd', arr);
+			
 	    })
 	}
 
@@ -86,6 +96,7 @@ return(
 	<Container className="p-4">
 		{name}
 		{bookings} 
+		Total: {total}
 	</Container>
 	)
 }
