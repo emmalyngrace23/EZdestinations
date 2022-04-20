@@ -2,17 +2,18 @@ import React, {useState, useEffect} from 'react';
 
 import{	Container } from 'react-bootstrap';
 
-import Destination from '../pages/Destinations';
+import DestinationCard from './DestinationCard';
 
 export default function UserView({destinationsData}){
-	// console.log(courseData) receives as an array
+	console.log(destinationsData); // receives as an array
+	console.log(typeof destinationsData);
 
 	const [destination, setDestinations] = useState([])
 
 	useEffect(() => {
 		const destinationsArr = destinationsData.map((destination) => {
 			if (destination.isActive === true){
-				return <Destination key={destination._id} destinationProp={destination}/>
+				return <DestinationCard key={destination._id} destinationProp={destination}/>
 			} else {
 				return null
 			}

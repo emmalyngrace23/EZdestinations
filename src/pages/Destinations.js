@@ -6,6 +6,7 @@ import {Container} from 'react-bootstrap';
 import AdminView from './../components/AdminView.js';
 import UserView from './../components/UserView.js';
 
+// context
 import UserContext from './../UserContext';
 
 
@@ -16,22 +17,15 @@ export default function Destinations() {
 	const {user} = useContext(UserContext);
 
 	const fetchData = () => {
-		let token = localStorage.getItem('token')
+		// let token = localStorage.getItem('token')
 
-		fetch('http://localhost:4000/destinations',{
-			method: "GET",
-			headers: {
-				"Authorization": `Bearer ${token}`
-			}
-		})
+		fetch('http://localhost:4000/destinations/all')
 		.then(result => result.json())
-		.then(result => {
-			console.log(result)
-			setDestinations(result)
+		.then(data => {
+			console.log(data, "main fetch")
+			setDestinations(data)
 		})
 	}
-
-
 
 	useEffect(() => {
 		fetchData()

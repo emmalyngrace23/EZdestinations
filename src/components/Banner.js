@@ -14,7 +14,7 @@ export default function Banner({data}){
 				<h1>{title}</h1>
 				<p>{content}</p>
 
-				<Button as={Link} to={destination}>{label}</Button>
+				<Button variant= "success" as={Link} to={destination}>{label}</Button>
 			</Col>
 		</Row>
 
@@ -30,8 +30,8 @@ export default function Banner(){
 	return(
 		<Row>
 			<Col className = "p-5">
-				<h1>EZ Accounting Tutorial</h1>
-				<p>Opportunities for everyone, everywhere</p>
+				<h1>EZ Destinations</h1>
+				<p>Your next Travel, made easy!</p>
 
 				<Button variant="primary">Enroll Now!</Button>
 			</Col>

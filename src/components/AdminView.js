@@ -171,11 +171,15 @@ export default function AdminView(props){
 
 	// Map through the destinations received from the parent component (destination page)
 	// Re-renders the table whenever the "destinationsData" is updated by adding, editing and deleting a destination
+	
 	useEffect(() => {
 
 		const archiveToggle = (destinationId, isActive) => {
 
-			console.log(!isActive);
+			console.log(!isActive, "hello toggle");
+			console.log(isActive, "hello isActive");
+			console.log(destinationId, "hello destinationId");
+
 
 			fetch(`http://localhost:4000/destinations/${ destinationId }/archive`, {
 				method: 'PUT',
@@ -184,14 +188,14 @@ export default function AdminView(props){
 					Authorization: `Bearer ${ localStorage.getItem('token') }`
 				},
 				body: JSON.stringify({
-					isActive: !isActive
+					isActive: false
 				})
 			})
 			.then(res => res.json())
 			.then(data => {
-
+				console.log(data, "this data")
 				if (data === true) {
-					console.log(data)
+					
 
 					fetchData();
 
@@ -257,9 +261,9 @@ export default function AdminView(props){
 			})
 		};
 
-	
+		
 		const destinationsArr = destinationsData.map(destination => {
-
+			console.log(destinationsData, "hi destinationsData")
 			return(
 
 				<tr key={destination._id}>
@@ -279,7 +283,7 @@ export default function AdminView(props){
 					</td>
 					<td>
 						<Button
-							variant="primary"
+							variant="success"
 							size="sm"
 							onClick={() => openEdit(destination._id)}
 						>
@@ -292,7 +296,7 @@ export default function AdminView(props){
 						{destination.isActive
 							?
 							<Button 
-								variant="danger" 
+								variant="secondary" 
 								size="sm" 
 								onClick={() => archiveToggle(destination._id, destination.isActive)}
 							>
@@ -327,12 +331,12 @@ export default function AdminView(props){
 			<div className="text-center my-4">
 				<h2>Admin Dashboard</h2>
 				<div className="d-flex justify-content-center">
-					<Button variant="primary" onClick={openAdd}>Add New Destination</Button>			
+					<Button variant="warning" onClick={openAdd}>Add New Destination</Button>			
 				</div>			
 			</div>
 
 			<Table striped bordered hover responsive>
-				<thead className="bg-dark text-white">
+				<thead className="bg-light text-dark" >
 					<tr>
 						<th>Name</th>
 						<th>Description</th>

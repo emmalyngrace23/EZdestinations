@@ -2,8 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #dcfcd1;
+    font-family: sans-serif;
 }
 
 .cardHighlight {
   min-height: 100%;
 }
+
