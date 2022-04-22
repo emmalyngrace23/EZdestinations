@@ -32,7 +32,8 @@ export default function AdminView(props){
 	const openEdit = (destinationId) => {
 
 		// Fetches the selected destination data using the destination ID
-		fetch(`http://localhost:4000/destinations/${ destinationId }`)
+		// https://cryptic-oasis-42379.herokuapp.com/
+		fetch(`https://cryptic-oasis-42379.herokuapp.com/destinations/${ destinationId }`)
 		.then(res => res.json())
 		.then(data => {
 
@@ -71,7 +72,7 @@ export default function AdminView(props){
 		// Helps retain the data if adding a destination is unsuccessful
 		e.preventDefault()
 
-		fetch(`http://localhost:4000/destinations`, {
+		fetch(`https://cryptic-oasis-42379.herokuapp.com/destinations`, {
 			method: 'POST',
 			headers: {
 				Authorization: `Bearer ${ localStorage.getItem('token') }`,
@@ -126,7 +127,7 @@ export default function AdminView(props){
 		
 		e.preventDefault();
 
-		fetch(`http://localhost:4000/destinations/${ destinationId }`, {
+		fetch(`https://cryptic-oasis-42379.herokuapp.com/destinations/${ destinationId }`, {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json',
@@ -182,7 +183,7 @@ export default function AdminView(props){
 			console.log(destinationId, "hello destinationId");
 
 
-			fetch(`http://localhost:4000/destinations/${ destinationId }/archive`, {
+			fetch(`https://cryptic-oasis-42379.herokuapp.com/destinations/${ destinationId }/archive`, {
 				method: 'PUT',
 				headers: {
 					"Content-Type": "application/json",

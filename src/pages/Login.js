@@ -20,7 +20,7 @@ export default function Login(props){
 	function loginUser(e) {
 		e.preventDefault();
 
-		fetch('http://localhost:4000/users/login', {
+		fetch('https://cryptic-oasis-42379.herokuapp.com/users/login', {
 			method: "POST",
 			headers: {
 				'Content-Type' : 'application/json'
@@ -57,7 +57,7 @@ export default function Login(props){
 		setPassword('');
 
 		const retrieveUserDetails = (token) => {
-			fetch('http://localhost:4000/users/details', {
+			fetch('https://cryptic-oasis-42379.herokuapp.com/users/details', {
 				method: "POST",
 				headers: {
 					Authorization: `Bearer ${token}`

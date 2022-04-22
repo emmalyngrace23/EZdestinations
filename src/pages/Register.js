@@ -22,7 +22,7 @@ export default function Register(){
 		
 		e.preventDefault();
 
-		fetch ('http://localhost:4000/users/checkEmail', {
+		fetch ('https://cryptic-oasis-42379.herokuapp.com/users/checkEmail', {
 			method: 'POST',
 			headers: {
 				'Content-Type' : 'application/json'
@@ -43,8 +43,8 @@ export default function Register(){
 					text: "Please provide another email"
 				})
 			} else {
-				console.log('available, do http://localhost:4000/users/register next');
-				fetch('http://localhost:4000/users/register', {
+				console.log('available, do https://cryptic-oasis-42379.herokuapp.com/users/register next');
+				fetch('https://cryptic-oasis-42379.herokuapp.com/users/register', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'

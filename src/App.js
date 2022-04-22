@@ -31,7 +31,7 @@ function App() {
   }
 
   useEffect(() => {
-    fetch('http://localhost:4000/users/details', {
+    fetch('https://cryptic-oasis-42379.herokuapp.com/users/details', {
       method: "POST",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`

@@ -20,7 +20,7 @@ export default function DestinationView(){
 	const {destinationId} = useParams();
 
 	const book = (destinationId) => {
-		fetch('http://localhost:4000/users/book', {
+		fetch('https://cryptic-oasis-42379.herokuapp.com/users/book', {
 			method: "POST",
 			headers: {
 				"Content-Type" : "application/json",
@@ -59,7 +59,7 @@ export default function DestinationView(){
 	useEffect(() => {
 		console.log(destinationId)
 
-		fetch(`http://localhost:4000/destinations/${destinationId}`)
+		fetch(`https://cryptic-oasis-42379.herokuapp.com/destinations/${destinationId}`)
 		.then(res => res.json())
 		.then(data => {
 			console.log(data)

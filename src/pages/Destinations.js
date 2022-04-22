@@ -19,7 +19,7 @@ export default function Destinations() {
 	const fetchData = () => {
 		// let token = localStorage.getItem('token')
 
-		fetch('http://localhost:4000/destinations/all')
+		fetch('https://cryptic-oasis-42379.herokuapp.com/destinations/all')
 		.then(result => result.json())
 		.then(data => {
 			console.log(data, "main fetch")

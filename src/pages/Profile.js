@@ -12,7 +12,7 @@ export default function Profile() {
 	const [total, setTotal] = useState();
 
 	const fetchData = () => {
-			fetch('http://localhost:4000/users/details', {
+			fetch('https://cryptic-oasis-42379.herokuapp.com/users/details', {
 	      method: "POST",
 	      headers: {
 	        Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -27,7 +27,7 @@ export default function Profile() {
 
 		  	data.bookings.forEach((b) => {
 
-		 		fetch (`http://localhost:4000/destinations/${b.destinationId}`, {
+		 		fetch (`https://cryptic-oasis-42379.herokuapp.com/destinations/${b.destinationId}`, {
 					method: 'GET',
 					headers: {
 						'Content-Type' : 'application/json'
@@ -101,3 +101,19 @@ return(
 	)
 }
 
+/*
+
+return (
+		<Container className="p-4">
+			{(user.isAdmin === true) ? 
+				('Welcome Back,' {name})
+				:
+				({name})
+			} 
+		</Container>
+	)
+}
+*/
+
+
+// https://whispering-fjord-74409.herokuapp.com/
