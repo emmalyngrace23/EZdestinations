@@ -1,5 +1,6 @@
 import {useState, useEffect, useContext} from 'react';
 import {Card, Container} from 'react-bootstrap';
+import {Navigate} from 'react-router-dom';
 
 import UserContext from './../UserContext';
 
@@ -7,6 +8,10 @@ import UserContext from './../UserContext';
 
 export default function Profile() {
 	console.log('profile');
+
+	// const {unsetUser, setUser} = useContext(UserContext);
+
+	// unsetUser();
 
 	const [bookings, setBookings] = useState([]);
 
@@ -99,21 +104,24 @@ export default function Profile() {
 	// 	</Card>
 
 return(
+	(user.id === null) ? 
+	<Navigate to='/login'/>
+	:
 	<Container className="p-4">
-		{name}
-		{bookings} 
-		{(user.isAdmin === true) ? 
-				" "
-				:
-				`Total: ${total}`
-			}
-	</Container>
+			{name}
+			{bookings} 
+			{(user.isAdmin === true) ? 
+					" "
+					:
+					`Total: ${total}`
+				}
+		</Container>
 	)
 }
 
 
-
 /*
+
 return (
 		<Container className="p-4">
 			{(user.isAdmin === true) ? 
@@ -128,7 +136,7 @@ return (
 	)
 }
 
+
+
 */
-
-
 
