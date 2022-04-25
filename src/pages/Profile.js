@@ -1,5 +1,8 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import {Card, Container} from 'react-bootstrap';
+
+import UserContext from './../UserContext';
+
 
 
 export default function Profile() {
@@ -10,6 +13,9 @@ export default function Profile() {
 	const [name, setName] = useState('');
 
 	const [total, setTotal] = useState();
+
+	const {user} = useContext(UserContext);
+
 
 	const fetchData = () => {
 			fetch('https://cryptic-oasis-42379.herokuapp.com/users/details', {
@@ -67,7 +73,7 @@ export default function Profile() {
 		  	const lName = data.lastName.toUpperCase();
 		  	
 			
-			setName(`Bookings for: ${lName}, ${data.firstName}`);
+			setName(`${lName}, ${data.firstName}`);
 			console.log('asdfasd', arr);
 			
 	    })
@@ -96,24 +102,33 @@ return(
 	<Container className="p-4">
 		{name}
 		{bookings} 
-		Total: {total}
+		{(user.isAdmin === true) ? 
+				" "
+				:
+				`Total: ${total}`
+			}
 	</Container>
 	)
 }
 
-/*
 
+
+/*
 return (
 		<Container className="p-4">
 			{(user.isAdmin === true) ? 
-				('Welcome Back,' {name})
+				`Welcome back, ${name}`
 				:
-				({name})
+				`${name},
+				${bookings}, 
+				Total: ${total}
+				`
 			} 
 		</Container>
 	)
 }
+
 */
 
 
-// https://whispering-fjord-74409.herokuapp.com/
+
