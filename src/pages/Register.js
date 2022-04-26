@@ -6,7 +6,9 @@ import UserContext from '../UserContext'
 
 export default function Register(){
  
-	const {user, setUser} = useContext(UserContext);
+	
+	// const {user, setUser} = useContext(UserContext);
+	const {user} = useContext(UserContext);
 
 	const history = useNavigate();
 
@@ -113,7 +115,6 @@ export default function Register(){
 				<Form.Label>First Name</Form.Label>
 				<Form.Control
 					type= "text"
-					placeholder= "Input your First Name here"
 					value={firstName}
 					onChange={e => setFirstName(e.target.value)}
 					required
@@ -123,7 +124,6 @@ export default function Register(){
 				<Form.Label>Last Name</Form.Label>
 				<Form.Control
 					type= "text"
-					placeholder= "Input your Last Name here"
 					value={lastName}
 					onChange={e => setLastName(e.target.value)}
 					required
@@ -133,7 +133,6 @@ export default function Register(){
 				<Form.Label>Mobile Number</Form.Label>
 				<Form.Control
 					type= "text"
-					placeholder= "Input your Mobile Number here"
 					value={mobileNo}
 					onChange={e => setMobileNo(e.target.value)}
 					required
@@ -143,7 +142,6 @@ export default function Register(){
 				<Form.Label>Email Address</Form.Label>
 				<Form.Control
 					type= "email"
-					placeholder= "Enter your email here"
 					value={email}
 					onChange={e => setEmail(e.target.value)}
 					required
@@ -156,7 +154,6 @@ export default function Register(){
 				<Form.Label>Password</Form.Label>
 				<Form.Control
 					type= "password"
-					placeholder= "Input your password here"
 					value={password}
 					onChange={e => setPassword(e.target.value)}
 					required
