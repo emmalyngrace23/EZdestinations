@@ -5,7 +5,7 @@ import Highlights from '../components/Highlights';
 
 export default function Home() {
 
-	const data = {
+	const data = { 
 		title: "EZ Destinations",
 		content: "Your next Travel, made easy!",
 		destination: "/destinations",
@@ -20,5 +20,3 @@ export default function Home() {
 		</Fragment>
 	)
 }
-
-console.log("hi");
