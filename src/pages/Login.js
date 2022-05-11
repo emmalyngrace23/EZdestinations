@@ -116,7 +116,7 @@ export default function Login(props){
 			</Form.Group>	
 			
 			{ isActive ?
-				<Button variant="success" type="submit" id="submitBtn" className="mt-3 mb-3">
+				<Button variant="primary" type="submit" id="submitBtn" className="mt-3 mb-3">
 				Login
 				</Button>
 				:

@@ -18,7 +18,7 @@ export default function DestinationCard ({destinationProp}) {
 						<Card.Text> {description}</Card.Text>
 						<Card.Subtitle>Price</Card.Subtitle>
 						<Card.Text>{price}</Card.Text>
-						<Button variant="success" as={Link} to={`/destinations/${_id}`}>See Details</Button>
+						<Button variant="primary" as={Link} to={`/destinations/${_id}`}>See Details</Button>
 					</Card.Body>
 				</Card>
 		</Card>

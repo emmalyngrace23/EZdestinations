@@ -14,7 +14,7 @@ export default function Banner({data}){
 				<h1>{title}</h1>
 				<p>{content}</p>
 
-				<Button variant= "success" as={Link} to={destination}>{label}</Button>
+				<Button variant= "primary" as={Link} to={destination}>{label}</Button>
 			</Col>
 		</Row>
 

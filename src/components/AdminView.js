@@ -244,7 +244,7 @@ export default function AdminView(props){
 					</td>
 					<td>
 						<Button
-							variant="success"
+							variant="primary"
 							size="sm"
 							onClick={() => openEdit(destination._id)}
 						>
@@ -265,7 +265,7 @@ export default function AdminView(props){
 							</Button>
 							:
 							<Button 
-								variant="success"
+								variant="primary"
 								size="sm"
 								onClick={() => archiveToggle(destination._id, destination.isActive)}
 							>

@@ -2,11 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #dcfcd1;
     font-family: sans-serif;
+    color: slateblue;
 }
 
 .cardHighlight {
   min-height: 100%;
+}
+
+#root {
+  background-image: url("http://localhost:3000/beach.png");
 }
 
