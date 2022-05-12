@@ -1,0 +1,14 @@
+* {
+   
+    font-family: sans-serif;
+    color: slateblue;
+}
+
+.cardHighlight {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-image: url(https://images.pexels.com/photos/1024989/pexels-photo-1024989.jpeg?cs=srgb&dl=pexels-asad-photo-maldives-1024989.jpg&fm=jpg);
+}
