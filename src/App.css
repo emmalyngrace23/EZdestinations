@@ -10,7 +10,7 @@
   min-height: 100%;
 }
 
-#root {
+body {
   background-image: url("http://localhost:3000/beach.png");
 }
 
