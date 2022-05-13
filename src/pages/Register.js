@@ -106,7 +106,7 @@ export default function Register(){
 	}, [firstName, lastName, mobileNo, email, password])
 
 	return(
-		(user.id !== null) ? 
+		(user.id !== null && user.id !== undefined) ? 
 		<Navigate to= "/destinations"/>
 		:
 		<Form onSubmit={e => registerUser(e)}>

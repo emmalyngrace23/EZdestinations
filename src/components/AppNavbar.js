@@ -19,17 +19,21 @@ export default function AppNavbar(){
 	      <Nav className="ml-auto">
 	        <Nav.Link as={Link} to="/">Home</Nav.Link>
 	        <Nav.Link as={Link} to="/destinations">Destinations</Nav.Link>
-	        <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
-
-	        { (user.id !== null) ?
-	        	<Nav.Link as={Link} to="/logout">Logout</Nav.Link>
+	        { (user.id === null || user.id === undefined) ?
+	        	<Nav.Link as={Link} to="/register">Register</Nav.Link>
 	        	:
 	        	<>
-	        	<Nav.Link as={Link} to="/register">Register</Nav.Link>
-	        	<Nav.Link as={Link} to="/login">Login</Nav.Link>
-
+	        	<Nav.Link as={Link} to="/profile">Profile</Nav.Link>
 	        	</>
 	        }
+	          { (user.id === null || user.id === undefined) ?
+	        	<Nav.Link as={Link} to="/login">Login</Nav.Link>
+	        	:
+	        	<>
+	        	<Nav.Link as={Link} to="/logout">Logout</Nav.Link>
+	        	</>
+	        }
+	        
 	        
 	      </Nav>
 	    </Navbar.Collapse>

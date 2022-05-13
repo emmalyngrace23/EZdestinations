@@ -86,7 +86,7 @@ export default function Login(props){
 	}, [email, password])
 
 	return(
-		(user.id !== null) ? 
+		(user.id !== null && user.id !== undefined) ? 
 		<Navigate to= "/destinations"/>
 		:
 		<Form onSubmit={e => loginUser(e)}>
