@@ -14,7 +14,7 @@ export default function DestinationCard ({destinationProp}) {
 
 	return(
 		<Card className="mainCard mt-3 mb-3">
-			<Card className="cardDestination p-3">
+			<Card className="cardDestination">
 				<Card.Body className="cardBody"> 	
 					<Card.Title>{name}</Card.Title>		
 					<Card.Subtitle className="cardImage">

@@ -75,12 +75,12 @@ export default function DestinationView(){
 	return(
 		<Container className="mt-5">
 			<Row>
-				<Col lg={{span: 6, offset: 3}}>
+				<Col lg={{span: 10, offset: 1}}>
 					<Card className="mainCard mt-3 mb-3">
 						<Card.Body className="cardBody">
 							<Card.Title>{name}</Card.Title>
-							<Card.Subtitle>
-								<img src={link} className="destinationPicture" alt="Destination Pic" />
+							<Card.Subtitle className="innerPicture">
+								<img src={link} className="innerDestinationPicture" alt="Destination Pic" />
 							</Card.Subtitle>
 							<Card.Subtitle className= "p-3">Description</Card.Subtitle>
 							<Card.Text >{description}</Card.Text>
