@@ -12,3 +12,24 @@
 body {
   background-image: url(https://images.pexels.com/photos/1024989/pexels-photo-1024989.jpeg?cs=srgb&dl=pexels-asad-photo-maldives-1024989.jpg&fm=jpg);
 }
+
+.destinationPicture {
+  width: 50%;
+  height: 50%;
+  padding: 20px;
+}
+
+.mainCard {
+  width: 100%;
+  height: 100%;
+  opacity: 70%;
+}
+
+.cardImage {
+  float: right;
+}
+
+
+.cardBody {
+  text-align: center;
+}

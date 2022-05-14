@@ -13,6 +13,7 @@ export default function DestinationView(){
 	const history = useNavigate();
 
 	const [name, setName] = useState('');
+	const [link, setLink] = useState('');
 	const [description, setDescription] = useState('');
 	const [price, setPrice] = useState(0);
 
@@ -65,6 +66,7 @@ export default function DestinationView(){
 			console.log(data)
 
 			setName(data.name);
+			setLink(data.link);
 			setDescription(data.description);
 			setPrice(data.price);
 		})
@@ -74,15 +76,18 @@ export default function DestinationView(){
 		<Container className="mt-5">
 			<Row>
 				<Col lg={{span: 6, offset: 3}}>
-					<Card>
-						<Card.Body>
+					<Card className="mainCard mt-3 mb-3">
+						<Card.Body className="cardBody">
 							<Card.Title>{name}</Card.Title>
-							<Card.Subtitle>Description</Card.Subtitle>
-							<Card.Text>{description}</Card.Text>
+							<Card.Subtitle>
+								<img src={link} className="destinationPicture" alt="Destination Pic" />
+							</Card.Subtitle>
+							<Card.Subtitle className= "p-3">Description</Card.Subtitle>
+							<Card.Text >{description}</Card.Text>
 							<Card.Subtitle>Price</Card.Subtitle>
 							<Card.Text>{price}</Card.Text>
 							<Card.Subtitle>Travel Schedule</Card.Subtitle>
-							<Card.Text>April to May 2022</Card.Text>
+							<Card.Text>June to December 2022</Card.Text>
 
 							{ user.id !== null ?
 								<Button variant="primary" onClick={() => book(destinationId)}>Book</Button>

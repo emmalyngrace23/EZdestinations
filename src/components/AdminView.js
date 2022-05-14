@@ -12,6 +12,7 @@ export default function AdminView(props){
 	const [destinationId, setDestinationId] = useState("");
 	const [destinations, setDestinations] = useState([]);
 	const [name, setName] = useState("");
+	const [link, setLink] = useState("");
 	const [description, setDescription] = useState("");
 	const [price, setPrice] = useState(0);
 
@@ -43,6 +44,7 @@ export default function AdminView(props){
 			// Populates the values of the input files in the modal form
 			setDestinationId(data._id);
 			setName(data.name);
+			setLink(data.link);
 			setDescription(data.description);
 			setPrice(data.price);
 		})
@@ -60,6 +62,7 @@ export default function AdminView(props){
 
 		setShowEdit(false);
 		setName("");
+		setLink("");
 		setDescription("");
 		setPrice(0);
 
@@ -80,6 +83,7 @@ export default function AdminView(props){
 			},
 			body: JSON.stringify({
 				name: name,
+				link: link,
 				description: description,
 				price: price
 			})
@@ -104,6 +108,7 @@ export default function AdminView(props){
 				// Reset all states to their initial values
 				// Provides better user experience by clearing all the input fieles when the user adds another destination
 				setName("")
+				setLink("")
 				setDescription("")
 				setPrice(0)
 
@@ -135,6 +140,7 @@ export default function AdminView(props){
 			},
 			body: JSON.stringify({
 				name: name,
+				link: link,
 				description: description,
 				price: price
 			})
@@ -229,6 +235,7 @@ export default function AdminView(props){
 
 				<tr key={destination._id}>
 					<td>{destination.name}</td>
+					<td>{destination.link}</td>
 					<td>{destination.description}</td>
 					<td>{destination.price}</td>
 					<td>
@@ -300,6 +307,7 @@ export default function AdminView(props){
 				<thead className="bg-light text-dark" >
 					<tr>
 						<th>Name</th>
+						<th>Link</th>
 						<th>Description</th>
 						<th>Price</th>
 						<th>Availability</th>
@@ -321,6 +329,10 @@ export default function AdminView(props){
 						<Form.Group controlId="destinationName">
 							<Form.Label>Name</Form.Label>
 							<Form.Control type="text" value={name} onChange={e => setName(e.target.value)} required/>
+						</Form.Group>
+						<Form.Group controlId="destinationLink">
+							<Form.Label>Link</Form.Label>
+							<Form.Control type="text" value={link} onChange={e => setLink(e.target.value)} required/>
 						</Form.Group>
 						<Form.Group controlId="destinationDescription">
 							<Form.Label>Description</Form.Label>
@@ -348,6 +360,10 @@ export default function AdminView(props){
 						<Form.Group controlId="destinationName">
 							<Form.Label>Name</Form.Label>
 							<Form.Control type="text" value={name} onChange={e => setName(e.target.value)} required/>
+						</Form.Group>
+						<Form.Group controlId="destinationLink">
+							<Form.Label>Link</Form.Label>
+							<Form.Control type="text" value={link} onChange={e => setLink(e.target.value)} required/>
 						</Form.Group>
 						<Form.Group controlId="destinationDescription">
 							<Form.Label>Description</Form.Label>
