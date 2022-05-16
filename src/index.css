@@ -39,12 +39,8 @@ body {
 }
 
 
-.cardText {
+.cardText, .cardBody {
   text-align: center;
-}
-
-.destinationButton {
-  float: right;
 }
 
 .registrationForm,
