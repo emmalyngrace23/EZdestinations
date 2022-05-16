@@ -38,12 +38,13 @@ body {
   float: right;
 }
 
-.innerPicture {
-  
+
+.cardText {
+  text-align: center;
 }
 
-.cardBody {
-  text-align: center;
+.destinationButton {
+  float: right;
 }
 
 .registrationForm,
