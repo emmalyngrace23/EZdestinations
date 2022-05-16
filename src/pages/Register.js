@@ -109,9 +109,9 @@ export default function Register(){
 		(user.id !== null && user.id !== undefined) ? 
 		<Navigate to= "/destinations"/>
 		:
-		<Form onSubmit={e => registerUser(e)}>
+		<Form className="registrationForm" onSubmit={e => registerUser(e)}>
 			<h1>Register</h1>
-			<Form.Group controlId="firstName">
+			<Form.Group className="formGroup" controlId="firstName">
 				<Form.Label>First Name</Form.Label>
 				<Form.Control
 					type= "text"
@@ -120,7 +120,7 @@ export default function Register(){
 					required
 				/>
 			</Form.Group>
-			<Form.Group controlId="lastName">
+			<Form.Group className="formGroup" controlId="lastName">
 				<Form.Label>Last Name</Form.Label>
 				<Form.Control
 					type= "text"
@@ -129,7 +129,7 @@ export default function Register(){
 					required
 				/>
 			</Form.Group>
-			<Form.Group controlId="mobileNo">
+			<Form.Group className="formGroup" controlId="mobileNo">
 				<Form.Label>Mobile Number</Form.Label>
 				<Form.Control
 					type= "text"
@@ -138,7 +138,7 @@ export default function Register(){
 					required
 				/>
 			</Form.Group>
-			<Form.Group controlId="userEmail">
+			<Form.Group className="formGroup" controlId="userEmail">
 				<Form.Label>Email Address</Form.Label>
 				<Form.Control
 					type= "email"
@@ -150,7 +150,7 @@ export default function Register(){
 					We will never share your email with anyone else
 				</Form.Text>
 			</Form.Group>
-			<Form.Group controlId="password1">
+			<Form.Group className="formGroup" controlId="password1">
 				<Form.Label>Password</Form.Label>
 				<Form.Control
 					type= "password"

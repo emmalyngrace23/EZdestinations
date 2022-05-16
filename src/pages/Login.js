@@ -90,8 +90,8 @@ export default function Login(props){
 		<Navigate to= "/destinations"/>
 		:
 		<Form onSubmit={e => loginUser(e)}>
-			<h1>Login</h1>
-			<Form.Group controlId="userEmail">
+			<h1 className= "login">Login</h1>
+			<Form.Group className="formGroup" controlId="userEmail">
 				<Form.Label>Email Address</Form.Label>
 				<Form.Control
 					type= "email"

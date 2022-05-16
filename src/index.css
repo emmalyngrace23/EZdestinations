@@ -7,6 +7,7 @@
 .cardHighlight {
   position: relative;
   min-height: 100%;
+  opacity: 50%;
 }
 
 body {
@@ -43,4 +44,17 @@ body {
 
 .cardBody {
   text-align: center;
+}
+
+.registrationForm,
+.login {
+  padding-top: 50px;
+}
+
+.formGroup {
+  padding-bottom: 20px;
+}
+
+.logo, .title {
+  font-family: satisfy, cursive;
 }

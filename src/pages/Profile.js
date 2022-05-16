@@ -62,12 +62,12 @@ export default function Profile() {
 							</Card>
 					</Card>
 					);
-
-					if (!!arr && arr.length === data.bookings.length) {
+			
+			 if (!!arr && arr.length === data.bookings.length) {
 						console.log('asd', arr);
 						setBookings(arr);
 						setTotal(total);
-					}
+					} 
 
 				})
 
@@ -75,6 +75,7 @@ export default function Profile() {
 
 
 		  	console.log(data, "datahdkfkdnvcndl")
+		  	console.log(total)
 		  	const lName = data.lastName.toUpperCase();
 		  	
 			
@@ -91,17 +92,6 @@ export default function Profile() {
 	}, [])
 
 
-	// <Card className="mt-3 mb-3">
-	// 		<Card className="cardUser p-3">
-	// 				<Card.Body> 
-	// 					<Card.Title>gjvhm</Card.Title>					
-	// 					<Card.Subtitle>sca</Card.Subtitle>
-	// 					<Card.Text> </Card.Text>
-	// 					<Card.Subtitle></Card.Subtitle>
-	// 					<Card.Text></Card.Text>
-	// 				</Card.Body>
-	// 			</Card>
-	// 	</Card>
 
 return(
 	(user.id === null) ? 
@@ -110,10 +100,10 @@ return(
 	<Container className="p-4">
 			{name}
 			{bookings} 
-			{(user.isAdmin === true) ? 
+			{(user.isAdmin === true || total === undefined) ? 
 					" "
 					:
-					`Total: ${total}`
+					`Total: Php ${total}`
 				}
 		</Container>
 	)

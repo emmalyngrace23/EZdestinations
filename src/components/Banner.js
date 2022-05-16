@@ -11,7 +11,7 @@ export default function Banner({data}){
 	return(
 		<Row>
 			<Col className = "p-5">
-				<h1>{title}</h1>
+				<h1 className="title">{title}</h1>
 				<p>{content}</p>
 
 				<Button variant= "primary" as={Link} to={destination}>{label}</Button>

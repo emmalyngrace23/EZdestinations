@@ -16,14 +16,13 @@ export default function DestinationCard ({destinationProp}) {
 		<Card className="mainCard mt-3 mb-3">
 			<Card className="cardDestination">
 				<Card.Body className="cardBody"> 	
-					<Card.Title>{name}</Card.Title>		
+					<Card.Title>{name}</Card.Title>	
 					<Card.Subtitle className="cardImage">
 						<img src = {link} className="destinationPicture" alt="Destination Pic" />
-					</Card.Subtitle>				
+					</Card.Subtitle>					
 					<Card.Text className="p-3"> {description}</Card.Text>
 					<Card.Subtitle>Price</Card.Subtitle>
-					<Card.Text>{price}</Card.Text>
-						
+					<Card.Text> Php {price}</Card.Text>
 					<Button variant="primary" as={Link} to={`/destinations/${_id}`}>See Details</Button>
 				</Card.Body>
 			</Card>
